@@ -9,16 +9,14 @@ class SegmentRenderer
   def render(digit)
     if digit == 1
       <<END
-|
-|
 
-|
-|
+   |
+   |
+   
+   |
+   |
+
 END
-    else
-      ""
     end
-    
   end
-  
 end

@@ -7,21 +7,28 @@ describe SegmentRenderer do
     SegmentRenderer.new.size.should == 2
   end
   
-  it "outputs the same width for all digits" do
-    renderer = SegmentRenderer.new
-    0.upto(9) do |d|
-      renderer.render(d).lines.map(&:chomp).all? { |l| l.size == renderer.size }
+  it "renders digits in the dimensions (size + 2) by (size * 2 + 3)" do
+    pending "WIP"
+    1.upto(5) do |s|
+      0.upto(9) do |d|
+        renderer = SegmentRenderer.new(:size => s)
+        lines = renderer.render(d).lines
+        lines.size == s * 2 + 3
+        lines.map(&:chomp).all? { |l| l.size == s + 2 }
+      end
     end
   end
 
   it "renders a 1" do
     one = SegmentRenderer.new.render(1)
     one.should == <<END
-|
-|
 
-|
-|
+   |
+   |
+   
+   |
+   |
+
 END
   end
   
