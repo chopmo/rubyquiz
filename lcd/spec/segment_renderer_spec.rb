@@ -13,5 +13,16 @@ describe SegmentRenderer do
       renderer.render(d).lines.map(&:chomp).all? { |l| l.size == renderer.size }
     end
   end
+
+  it "renders a 1" do
+    one = SegmentRenderer.new.render(1)
+    one.should == <<END
+|
+|
+
+|
+|
+END
+  end
   
 end
